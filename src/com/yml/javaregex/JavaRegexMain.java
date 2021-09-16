@@ -19,6 +19,11 @@ public class JavaRegexMain {
         String lastNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
         matcher(lastNamePattern, lastName);
 
+        out.println("Enter Mobile Number");
+        String phone = in.nextLine();
+        String phonePattern = "^[0-9]{2}[\\s][0-9]{10}";
+        matcher(phonePattern, phone);
+
         out.close();
     }
     
