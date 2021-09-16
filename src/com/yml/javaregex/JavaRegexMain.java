@@ -14,6 +14,11 @@ public class JavaRegexMain {
         String firstNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
         matcher(firstNamePattern, firstName);
 
+        out.println("Enter Last Name");
+        String lastName = in.nextLine();
+        String lastNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
+        matcher(lastNamePattern, lastName);
+
         out.close();
     }
     
