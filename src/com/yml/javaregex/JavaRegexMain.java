@@ -1,17 +1,28 @@
 package com.yml.javaregex;
 
 import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class JavaRegexMain {
     public static void main(String args[]) {
         PrintWriter out = new PrintWriter(System.out, true);
+        Scanner in = new Scanner(System.in);
 
-        //Use Case 1 - First Name Matcher
+        out.println("Enter First Name");
+        String firstName = in.nextLine();
         String firstNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
-        out.println(Pattern.matches(firstNamePattern, "Sujay")); // True Case
-        out.println(Pattern.matches(firstNamePattern, "1Abc"));  // False Case
+        matcher(firstNamePattern, firstName);
 
         out.close();
+    }
+    
+    private static void matcher(String pattern, String string) {
+        if (Pattern.matches(pattern, string)) {
+            System.out.println(string + " matches the pattern "+pattern);
+        }
+        else {
+            System.out.println(string + " does not match the pattern "+pattern);
+        }
     }
 }
