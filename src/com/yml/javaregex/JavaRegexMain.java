@@ -24,6 +24,11 @@ public class JavaRegexMain {
         String phonePattern = "^[0-9]{2}[\\s][0-9]{10}";
         matcher(phonePattern, phone);
 
+        out.println("Enter Password");
+        String password = in.nextLine();
+        String passwordPattern = "^[0-9a-zA-Z]{8,}";
+        matcher(passwordPattern, password);
+
         out.close();
     }
     
