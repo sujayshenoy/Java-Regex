@@ -19,6 +19,11 @@ public class JavaRegexMain {
         String lastNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
         matcher(lastNamePattern, lastName);
 
+        String emailPattern = "^[0-9a-zA-Z]+([.+_\\-][0-9a-zA-Z])*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})*$";
+		System.out.println("Please enter your email");
+		String email = in.nextLine();
+		matcher(emailPattern,email);
+
         out.println("Enter Mobile Number");
         String phone = in.nextLine();
         String phonePattern = "^[0-9]{2}[\\s][0-9]{10}";
