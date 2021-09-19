@@ -31,7 +31,7 @@ public class JavaRegexMain {
 
         out.println("Enter Password");
         String password = in.nextLine();
-        String passwordPattern = "(?=.*[A-Z])(?=.*[0-9]).{8,}";
+        String passwordPattern = "(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%&!]).{8,}";
         matcher(passwordPattern, password);
 
         out.close();
