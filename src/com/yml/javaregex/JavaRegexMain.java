@@ -9,29 +9,29 @@ public class JavaRegexMain {
         PrintWriter out = new PrintWriter(System.out, true);
         Scanner in = new Scanner(System.in);
 
-        out.println("Enter First Name");
-        String firstName = in.nextLine();
-        String firstNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
-        matcher(firstNamePattern, firstName);
+        // out.println("Enter First Name");
+        // String firstName = in.nextLine();
+        // String firstNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
+        // matcher(firstNamePattern, firstName);
 
-        out.println("Enter Last Name");
-        String lastName = in.nextLine();
-        String lastNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
-        matcher(lastNamePattern, lastName);
+        // out.println("Enter Last Name");
+        // String lastName = in.nextLine();
+        // String lastNamePattern = "^[A-Z]{1}[a-zA-Z]{2,}";
+        // matcher(lastNamePattern, lastName);
 
-        String emailPattern = "^[0-9a-zA-Z]+([.+_\\-][0-9a-zA-Z])*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})*$";
-		System.out.println("Please enter your email");
-		String email = in.nextLine();
-		matcher(emailPattern,email);
+        // String emailPattern = "^[0-9a-zA-Z]+([.+_\\-][0-9a-zA-Z])*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2})*$";
+		// System.out.println("Please enter your email");
+		// String email = in.nextLine();
+		// matcher(emailPattern,email);
 
-        out.println("Enter Mobile Number");
-        String phone = in.nextLine();
-        String phonePattern = "^[0-9]{2}[\\s][0-9]{10}";
-        matcher(phonePattern, phone);
+        // out.println("Enter Mobile Number");
+        // String phone = in.nextLine();
+        // String phonePattern = "^[0-9]{2}[\\s][0-9]{10}";
+        // matcher(phonePattern, phone);
 
         out.println("Enter Password");
         String password = in.nextLine();
-        String passwordPattern = "^[0-9a-zA-Z]{8,}";
+        String passwordPattern = "(?=.*[A-Z]).{8,}";
         matcher(passwordPattern, password);
 
         out.close();
