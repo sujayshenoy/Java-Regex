@@ -3,10 +3,14 @@ package com.yml.test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collection;
 
+import com.yml.customexceptions.InvalidEmailException;
+import com.yml.customexceptions.InvalidFirstNameException;
+import com.yml.customexceptions.InvalidLastNameException;
+import com.yml.customexceptions.InvalidMobileException;
+import com.yml.customexceptions.InvalidPasswordException;
 import com.yml.javaregex.JavaRegex;
 import org.junit.Assert;
 import org.junit.Before;
@@ -48,7 +52,11 @@ public class JunitRegexTest {
     @Test
     public void javaRegexTest() {
         printCurrentInput();
-        assertTrue(javaRegex.validateEmail(this.email));
+        try{
+            assertTrue(javaRegex.validateEmail(this.email));
+        } catch (InvalidEmailException ie) {
+            ie.printStackTrace();
+        }
     }
     
     private void printCurrentInput() {
@@ -70,17 +78,23 @@ public class JunitRegexTest {
         String mobile = "91 8576321832";
         String password = "junitSecret@12";
 
-        boolean firstNameRes = javaRegex.validateFirstName(firstName);
-        boolean lastNameRes = javaRegex.validateFirstName(lastName);
-        boolean emailRes = javaRegex.validateEmail(email);
-        boolean mobileRes = javaRegex.validateMobile(mobile);
-        boolean passwordRes = javaRegex.validatePassword(password);
-
-        Assert.assertTrue(firstNameRes);
-        Assert.assertTrue(lastNameRes);
-        Assert.assertTrue(emailRes);
-        Assert.assertTrue(mobileRes);
-        Assert.assertTrue(passwordRes);
+        try{
+            Assert.assertTrue(javaRegex.validateFirstName(firstName));
+            Assert.assertTrue(javaRegex.validateLastName(lastName));
+            Assert.assertTrue(javaRegex.validateEmail(email));
+            Assert.assertTrue(javaRegex.validateMobile(mobile));
+            Assert.assertTrue(javaRegex.validatePassword(password));
+        }catch (InvalidFirstNameException ifn) {
+            ifn.printStackTrace();
+        }catch (InvalidLastNameException iln) {
+            iln.printStackTrace();
+        }catch (InvalidEmailException ie) {
+            ie.printStackTrace();
+        }catch (InvalidMobileException im) {
+            im.printStackTrace();
+        }catch (InvalidPasswordException ip) {
+            ip.printStackTrace();
+        }
     }
     
     /**
@@ -97,16 +111,22 @@ public class JunitRegexTest {
         String mobile = "91 8576321832231213";
         String password = "password";
 
-        boolean firstNameRes = javaRegex.validateFirstName(firstName);
-        boolean lastNameRes = javaRegex.validateFirstName(lastName);
-        boolean emailRes = javaRegex.validateEmail(email);
-        boolean mobileRes = javaRegex.validateMobile(mobile);
-        boolean passwordRes = javaRegex.validatePassword(password);
-
-        Assert.assertTrue(firstNameRes);
-        Assert.assertTrue(lastNameRes);
-        Assert.assertTrue(emailRes);
-        Assert.assertTrue(mobileRes);
-        Assert.assertTrue(passwordRes);
+        try{
+            Assert.assertTrue(javaRegex.validateFirstName(firstName));
+            Assert.assertTrue(javaRegex.validateLastName(lastName));
+            Assert.assertTrue(javaRegex.validateEmail(email));
+            Assert.assertTrue(javaRegex.validateMobile(mobile));
+            Assert.assertTrue(javaRegex.validatePassword(password));
+        } catch (InvalidFirstNameException ifn) {
+            ifn.printStackTrace();
+        }catch (InvalidLastNameException iln) {
+            iln.printStackTrace();
+        }catch (InvalidEmailException ie) {
+            ie.printStackTrace();
+        }catch (InvalidMobileException im) {
+            im.printStackTrace();
+        }catch (InvalidPasswordException ip) {
+            ip.printStackTrace();
+        }
     }
 }
