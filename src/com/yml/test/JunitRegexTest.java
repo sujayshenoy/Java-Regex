@@ -1,10 +1,60 @@
 package com.yml.test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Collection;
+
 import com.yml.javaregex.JavaRegex;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+@RunWith(Parameterized.class)
 public class JunitRegexTest {
+    private String email;
+    private JavaRegex javaRegex;
+
+    
+    public JunitRegexTest(String email) {
+        this.email = email;
+    }
+    
+    @Before
+    public void initialize() {
+        javaRegex = new JavaRegex();
+    }
+
+    @Parameterized.Parameters
+    public static Collection input() {
+        return Arrays.asList(
+                new Object[][] {
+                { "abc@yahoo.com" },
+                { "abc-100@yahoo.com" },
+                { "abc.100@yahoo.com" },
+                { "abc111@yahoo.com" },
+                
+                { "abc@.com" }, 
+                { "abc123@.com.com" }, 
+                { "abc@abc@gmail.com" }, 
+                { "abc@gmail.com.1a" }, 
+     });
+    }
+
+    @Test
+    public void javaRegexTest() {
+        printCurrentInput();
+        assertTrue(javaRegex.validateEmail(this.email));
+    }
+    
+    private void printCurrentInput() {
+        System.out.println("Email: " + email);
+        System.out.println();
+    }
 
     /**
      * Tests all positive cases
