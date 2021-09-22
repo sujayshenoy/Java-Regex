@@ -12,6 +12,8 @@ import com.yml.customexceptions.InvalidLastNameException;
 import com.yml.customexceptions.InvalidMobileException;
 import com.yml.customexceptions.InvalidPasswordException;
 import com.yml.javaregex.JavaRegex;
+import com.yml.javaregex.ValidationInterface;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -78,23 +80,27 @@ public class JunitRegexTest {
         String mobile = "91 8576321832";
         String password = "junitSecret@12";
 
-        try{
-            Assert.assertTrue(javaRegex.validateFirstName(firstName));
-            Assert.assertTrue(javaRegex.validateLastName(lastName));
-            Assert.assertTrue(javaRegex.validateEmail(email));
-            Assert.assertTrue(javaRegex.validateMobile(mobile));
-            Assert.assertTrue(javaRegex.validatePassword(password));
-        }catch (InvalidFirstNameException ifn) {
-            ifn.printStackTrace();
-        }catch (InvalidLastNameException iln) {
-            iln.printStackTrace();
-        }catch (InvalidEmailException ie) {
-            ie.printStackTrace();
-        }catch (InvalidMobileException im) {
-            im.printStackTrace();
-        }catch (InvalidPasswordException ip) {
-            ip.printStackTrace();
-        }
+        ValidationInterface validator = (fName, lName, mail, phone, pword) -> {
+            try {
+                Assert.assertTrue(javaRegex.validateFirstName(fName));
+                Assert.assertTrue(javaRegex.validateLastName(lName));
+                Assert.assertTrue(javaRegex.validateEmail(mail));
+                Assert.assertTrue(javaRegex.validateMobile(phone));
+                Assert.assertTrue(javaRegex.validatePassword(pword));
+            } catch (InvalidFirstNameException ifn) {
+                ifn.printStackTrace();
+            }catch (InvalidLastNameException iln) {
+                iln.printStackTrace();
+            }catch (InvalidEmailException ie) {
+                ie.printStackTrace();
+            }catch (InvalidMobileException im) {
+                im.printStackTrace();
+            }catch (InvalidPasswordException ip) {
+                ip.printStackTrace();
+            } 
+        };
+
+        validator.validate(firstName, lastName, email, mobile, password);
     }
     
     /**
@@ -111,22 +117,26 @@ public class JunitRegexTest {
         String mobile = "91 8576321832231213";
         String password = "password";
 
-        try{
-            Assert.assertTrue(javaRegex.validateFirstName(firstName));
-            Assert.assertTrue(javaRegex.validateLastName(lastName));
-            Assert.assertTrue(javaRegex.validateEmail(email));
-            Assert.assertTrue(javaRegex.validateMobile(mobile));
-            Assert.assertTrue(javaRegex.validatePassword(password));
-        } catch (InvalidFirstNameException ifn) {
-            ifn.printStackTrace();
-        }catch (InvalidLastNameException iln) {
-            iln.printStackTrace();
-        }catch (InvalidEmailException ie) {
-            ie.printStackTrace();
-        }catch (InvalidMobileException im) {
-            im.printStackTrace();
-        }catch (InvalidPasswordException ip) {
-            ip.printStackTrace();
-        }
+        ValidationInterface validator = (fName, lName, mail, phone, pword) -> {
+            try {
+                Assert.assertTrue(javaRegex.validateFirstName(fName));
+                Assert.assertTrue(javaRegex.validateLastName(lName));
+                Assert.assertTrue(javaRegex.validateEmail(mail));
+                Assert.assertTrue(javaRegex.validateMobile(phone));
+                Assert.assertTrue(javaRegex.validatePassword(pword));
+            } catch (InvalidFirstNameException ifn) {
+                ifn.printStackTrace();
+            }catch (InvalidLastNameException iln) {
+                iln.printStackTrace();
+            }catch (InvalidEmailException ie) {
+                ie.printStackTrace();
+            }catch (InvalidMobileException im) {
+                im.printStackTrace();
+            }catch (InvalidPasswordException ip) {
+                ip.printStackTrace();
+            } 
+        };
+
+        validator.validate(firstName, lastName, email, mobile, password);
     }
 }
